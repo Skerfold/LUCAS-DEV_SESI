@@ -1,0 +1,70 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <div class="text-center mb-4">
+            <h2 class="card-title text-primary">Login</h2>
+            <p class="text-muted">Acesse sua conta RH Connect</p>
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- Email Field -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                formControlName="email"
+                [class.is-invalid]="email?.invalid && email?.touched"
+                placeholder="seu@email.com">
+              
+              <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+                <div *ngIf="email?.errors?.['required']">Email é obrigatório</div>
+                <div *ngIf="email?.errors?.['email']">Formato de email inválido</div>
+              </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="mb-4">
+              <label for="senha" class="form-label">Senha</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                id="senha" 
+                formControlName="senha"
+                [class.is-invalid]="senha?.invalid && senha?.touched"
+                placeholder="Sua senha">
+              
+              <div *ngIf="senha?.invalid && senha?.touched" class="invalid-feedback">
+                <div *ngIf="senha?.errors?.['required']">Senha é obrigatória</div>
+                <div *ngIf="senha?.errors?.['minlength']">A senha deve ter no mínimo 6 caracteres</div>
+              </div>
+            </div>
+
+            <!-- Error Message -->
+            <div *ngIf="errorMessage" class="alert alert-danger text-center mb-3">
+              {{ errorMessage }}
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid gap-2">
+              <button 
+                type="submit" 
+                class="btn btn-primary btn-lg" 
+                [disabled]="loginForm.invalid || loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                {{ loading ? 'Entrando...' : 'Entrar' }}
+              </button>
+            </div>
+
+            <p class="text-center mt-4 mb-0">
+              Não tem uma conta? <a routerLink="/registro" class="text-primary fw-bold">Registre-se aqui</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+// Estilos globais para o layout da aplicação
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4; // Cor de fundo geral do corpo
+}
+
+#root { // Ou o seletor do seu app-root
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Garante que o app ocupe a altura total da viewport
+}
+
+main {
+  flex: 1; // Permite que o conteúdo principal cresça e ocupe o espaço disponível
+}

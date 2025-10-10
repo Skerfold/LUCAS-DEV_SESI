@@ -1,0 +1,78 @@
+<div class="container my-5">
+  <h2 class="text-center mb-4 text-dark">Gerenciar Currículos</h2>
+
+  <div class="row">
+    <!-- Lista de Currículos -->
+    <div class="col-md-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Todos os Currículos</h5>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nome Completo</th>
+                  <th>Email</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let curriculo of curriculos">
+                  <td>{{ curriculo.id }}</td>
+                  <td>{{ curriculo.nomeCompleto }}</td>
+                  <td>{{ curriculo.email }}</td>
+                  <td>
+                    <button class="btn btn-info btn-sm me-2" (click)="selecionarCurriculo(curriculo)">Ver Detalhes</button>
+                    <button class="btn btn-danger btn-sm" (click)="excluirCurriculo(curriculo.id)">Excluir</button>
+                  </td>
+                </tr>
+                <tr *ngIf="curriculos.length === 0">
+                  <td colspan="4" class="text-center text-muted">Nenhum currículo cadastrado.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detalhes do Currículo Selecionado -->
+    <div class="col-md-6">
+      <div *ngIf="curriculoSelecionado" class="card shadow-sm">
+        <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+          <h5 class="mb-0">Detalhes do Currículo: {{ curriculoSelecionado.nomeCompleto }}</h5>
+          <button class="btn btn-light btn-sm" (click)="fecharDetalhes()">Fechar</button>
+        </div>
+        <div class="card-body">
+          <p><strong>ID:</strong> {{ curriculoSelecionado.id }}</p>
+          <p><strong>Email:</strong> {{ curriculoSelecionado.email }}</p>
+          <p><strong>Telefone:</strong> {{ curriculoSelecionado.telefone }}</p>
+          <p><strong>Experiência:</strong></p>
+          <pre class="bg-light p-2 rounded">{{ curriculoSelecionado.experiencia }}</pre>
+          <p><strong>Formação:</strong></p>
+          <pre class="bg-light p-2 rounded">{{ curriculoSelecionado.formacao }}</pre>
+          <p><strong>Habilidades:</strong></p>
+          <pre class="bg-light p-2 rounded">{{ curriculoSelecionado.habilidades }}</pre>
+
+          <h6 class="mt-4">Candidaturas deste Currículo:</h6>
+          <div *ngIf="candidaturasDoCurriculoSelecionado.length > 0">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let candidatura of candidaturasDoCurriculoSelecionado">
+                Vaga: <strong>{{ candidatura.nomeVaga }}</strong> (ID: {{ candidatura.vagaId }}) - Salário: R$ {{ candidatura.salarioVaga }},00 - Data: {{ candidatura.dataCandidatura }}
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="candidaturasDoCurriculoSelecionado.length === 0" class="text-muted">
+            Nenhuma candidatura encontrada para este currículo.
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!curriculoSelecionado" class="alert alert-info text-center shadow-sm">
+        Selecione um currículo na lista para ver os detalhes.
+      </div>
+    </div>
+  </div>
+</div>

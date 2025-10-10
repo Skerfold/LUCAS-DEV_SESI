@@ -1,0 +1,71 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="card-title text-center mb-4 text-dark">Cadastro de Currículo</h2>
+          <form [formGroup]="curriculoForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="nomeCompleto" class="form-label">Nome Completo</label>
+              <input type="text" class="form-control" id="nomeCompleto" formControlName="nomeCompleto"
+                     [class.is-invalid]="curriculoForm.get('nomeCompleto')?.invalid && curriculoForm.get('nomeCompleto')?.touched">
+              <div *ngIf="curriculoForm.get('nomeCompleto')?.invalid && curriculoForm.get('nomeCompleto')?.touched" class="invalid-feedback">
+                Nome completo é obrigatório.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email"
+                     [class.is-invalid]="curriculoForm.get('email')?.invalid && curriculoForm.get('email')?.touched">
+              <div *ngIf="curriculoForm.get('email')?.invalid && curriculoForm.get('email')?.touched" class="invalid-feedback">
+                <div *ngIf="curriculoForm.get('email')?.errors?.['required']">Email é obrigatório.</div>
+                <div *ngIf="curriculoForm.get('email')?.errors?.['email']">Email inválido.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="telefone" class="form-label">Telefone</label>
+              <input type="text" class="form-control" id="telefone" formControlName="telefone"
+                     [class.is-invalid]="curriculoForm.get('telefone')?.invalid && curriculoForm.get('telefone')?.touched">
+              <div *ngIf="curriculoForm.get('telefone')?.invalid && curriculoForm.get('telefone')?.touched" class="invalid-feedback">
+                Telefone é obrigatório.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="experiencia" class="form-label">Experiência Profissional</label>
+              <textarea class="form-control" id="experiencia" formControlName="experiencia" rows="4"
+                        [class.is-invalid]="curriculoForm.get('experiencia')?.invalid && curriculoForm.get('experiencia')?.touched"></textarea>
+              <div *ngIf="curriculoForm.get('experiencia')?.invalid && curriculoForm.get('experiencia')?.touched" class="invalid-feedback">
+                Experiência profissional é obrigatória.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="formacao" class="form-label">Formação Acadêmica</label>
+              <textarea class="form-control" id="formacao" formControlName="formacao" rows="4"
+                        [class.is-invalid]="curriculoForm.get('formacao')?.invalid && curriculoForm.get('formacao')?.touched"></textarea>
+              <div *ngIf="curriculoForm.get('formacao')?.invalid && curriculoForm.get('formacao')?.touched" class="invalid-feedback">
+                Formação acadêmica é obrigatória.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="habilidades" class="form-label">Habilidades</label>
+              <textarea class="form-control" id="habilidades" formControlName="habilidades" rows="3"
+                        [class.is-invalid]="curriculoForm.get('habilidades')?.invalid && curriculoForm.get('habilidades')?.touched"></textarea>
+              <div *ngIf="curriculoForm.get('habilidades')?.invalid && curriculoForm.get('habilidades')?.touched" class="invalid-feedback">
+                Habilidades são obrigatórias.
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary" [disabled]="curriculoForm.invalid">Salvar Currículo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

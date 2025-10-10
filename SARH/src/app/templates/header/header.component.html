@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand text-dark fw-bold fs-4" routerLink="/">RH Connect</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-secondary" routerLink="/vagas" routerLinkActive="active">Vagas</a>
+        </li>
+        <ng-container *ngIf="!isLoggedIn()">
+          <li class="nav-item">
+            <a class="nav-link text-secondary" routerLink="/login" routerLinkActive="active">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-secondary" routerLink="/registro" routerLinkActive="active">Registro</a>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedIn()">
+          <li class="nav-item" *ngIf="isUserAdmin()">
+            <a class="nav-link text-secondary" routerLink="/admin-vagas" routerLinkActive="active">Gerenciar Vagas</a>
+          </li>
+          <li class="nav-item" *ngIf="isUserAdmin()">
+            <a class="nav-link text-secondary" routerLink="/admin-curriculos" routerLinkActive="active">Gerenciar Currículos</a>
+          </li>
+          <li class="nav-item" *ngIf="isUserComum()">
+            <a class="nav-link text-secondary" routerLink="/curriculos" routerLinkActive="active">Meu Currículo</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-danger ms-lg-3" (click)="logout()">Sair</button>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>

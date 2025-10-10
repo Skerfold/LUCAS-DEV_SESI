@@ -1,0 +1,123 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "email": "admin@rhconnect.com",
+      "senha": "admin123",
+      "tipo": "admin"
+    },
+    {
+      "id": "2",
+      "email": "maria.silva@email.com",
+      "senha": "senha123",
+      "tipo": "comum"
+    },
+    {
+      "id": "3",
+      "email": "joao.santos@email.com",
+      "senha": "senha123",
+      "tipo": "comum"
+    },
+    {
+      "id": "4",
+      "email": "ana.oliveira@email.com",
+      "senha": "senha123",
+      "tipo": "comum"
+    },
+    {
+      "id": "0",
+      "email": "miguelpicinin6@gmail.com",
+      "senha": "Mi131207",
+      "tipo": "comum"
+    }
+  ],
+  "vagas": [
+    {
+      "id": "1",
+      "nome": "Desenvolvedor Front-end Angular",
+      "foto": "https://placehold.co/400x300/002D62/FFFFFF?text=Angular+Developer",
+      "descricao": "Buscamos desenvolvedor Front-end com experiência em Angular para atuar em projetos inovadores. Requisitos: Angular 12+, TypeScript, HTML5, CSS3, Git.",
+      "salario": 7500
+    },
+    {
+      "id": "2",
+      "nome": "Analista de Dados Pleno",
+      "foto": "https://placehold.co/400x300/002D62/FFFFFF?text=Data+Analyst",
+      "descricao": "Vaga para analista de dados com conhecimento em Python, SQL, Power BI e ferramentas de análise estatística. Experiência com machine learning é diferencial.",
+      "salario": 6500
+    },
+    {
+      "id": "3",
+      "nome": "UX/UI Designer",
+      "foto": "https://placehold.co/400x300/002D62/FFFFFF?text=UX+Designer",
+      "descricao": "Designer com experiência em criação de interfaces intuitivas e responsivas. Domínio de Figma, Adobe XD, prototipagem e design system.",
+      "salario": 5500
+    },
+    {
+      "id": "4",
+      "nome": "Desenvolvedor Back-end Java",
+      "foto": "https://placehold.co/400x300/002D62/FFFFFF?text=Java+Developer",
+      "descricao": "Desenvolvedor Back-end Java Spring Boot para sistema de alta performance. Conhecimento em microserviços, Docker e bancos relacionais.",
+      "salario": 8500
+    },
+    {
+      "id": "5",
+      "nome": "Product Owner",
+      "foto": "https://placehold.co/400x300/002D62/FFFFFF?text=Product+Owner",
+      "descricao": "Profissional para gerenciamento de produto digital. Experiência em metodologias ágeis, backlog grooming e priorização de features.",
+      "salario": 9500
+    }
+  ],
+  "curriculos": [
+    {
+      "id": "1",
+      "nomeCompleto": "Maria Silva",
+      "email": "maria.silva@email.com",
+      "telefone": "(11) 98765-4321",
+      "experiencia": "3 anos como Desenvolvedora Front-end na TechSolutions\n2 anos como Estagiária em Desenvolvimento Web na StartupXYZ",
+      "formacao": "Bacharelado em Ciência da Computação - Universidade Federal (2018-2022)\nCurso de Angular Avançado - Alura (2023)",
+      "habilidades": "Angular, TypeScript, JavaScript, HTML5, CSS3, Sass, Git, React, Vue.js",
+      "usuarioId": 2
+    },
+    {
+      "id": "2",
+      "nomeCompleto": "João Santos",
+      "email": "joao.santos@email.com",
+      "telefone": "(11) 91234-5678",
+      "experiencia": "Analista de Dados Júnior na DataInsights (2 anos)\nEstagiário em Business Intelligence na CorpAnalytics (1 ano)",
+      "formacao": "Bacharelado em Estatística - USP (2017-2021)\nPós-graduação em Data Science - PUC (2022-2023)",
+      "habilidades": "Python, Pandas, NumPy, SQL, Power BI, Tableau, Machine Learning, Estatística",
+      "usuarioId": 3
+    },
+    {
+      "id": "3",
+      "nomeCompleto": "Ana Oliveira",
+      "email": "ana.oliveira@email.com",
+      "telefone": "(11) 99876-5432",
+      "experiencia": "UX Designer Sênior na DesignInnovation (4 anos)\nUI Designer na CreativeStudio (2 anos)",
+      "formacao": "Design Gráfico - Belas Artes (2014-2018)\nEspecialização em UX Design - IED (2019)",
+      "habilidades": "Figma, Adobe XD, Sketch, Prototipagem, Design System, User Research, Usabilidade",
+      "usuarioId": 4
+    }
+  ],
+  "candidaturas": [
+    {
+      "id": "1",
+      "curriculoId": 1,
+      "vagaId": 1,
+      "dataCandidatura": "2024-05-15"
+    },
+    {
+      "id": "2",
+      "curriculoId": 1,
+      "vagaId": 2,
+      "dataCandidatura": "2024-05-16"
+    },
+    {
+      "id": "3",
+      "curriculoId": 2,
+      "vagaId": 2,
+      "dataCandidatura": "2024-05-16"
+    }
+  ]
+}

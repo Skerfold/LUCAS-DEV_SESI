@@ -1,0 +1,102 @@
+$primaria: #007bff; // Azul Bootstrap padrão
+$secundaria: #6c757d; // Cinza Bootstrap padrão
+$dark: #343a40; // Preto Bootstrap padrão
+
+.container {
+  max-width: 1400px; // Aumenta a largura para melhor visualização
+  margin: 2rem auto;
+
+  h2 {
+    color: $dark;
+    font-weight: bold;
+  }
+
+  .card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    .card-header {
+      background-color: $primaria;
+      color: white;
+      font-weight: bold;
+      border-bottom: none;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+
+      &.bg-secondary {
+        background-color: $secundaria !important;
+      }
+    }
+
+    .card-body {
+      padding: 1.5rem;
+
+      p {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      strong {
+        color: $dark;
+      }
+
+      pre {
+        background-color: #f8f9fa;
+        border: 1px solid #e9ecef;
+        padding: 0.75rem;
+        border-radius: 0.25rem;
+        white-space: pre-wrap; // Quebra de linha para textos longos
+        font-size: 0.85rem;
+        color: #495057;
+      }
+
+      .list-group-item {
+        font-size: 0.9rem;
+        border-color: #e9ecef;
+        margin-bottom: 0.25rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .table {
+    th, td {
+      vertical-align: middle;
+      font-size: 0.9rem;
+    }
+    th {
+      background-color: lighten($primaria, 40%);
+      color: $dark;
+    }
+    tbody tr:hover {
+      background-color: #e2f0ff; // Um azul claro ao passar o mouse
+    }
+  }
+
+  .btn-info {
+    background-color: $primaria;
+    border-color: $primaria;
+    &:hover {
+      background-color: darken($primaria, 10%);
+      border-color: darken($primaria, 10%);
+    }
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    &:hover {
+      background-color: darken(#dc3545, 10%);
+      border-color: darken(#dc3545, 10%);
+    }
+  }
+
+  .alert-info {
+    background-color: lighten($primaria, 45%);
+    border-color: lighten($primaria, 35%);
+    color: darken($primaria, 20%);
+  }
+}

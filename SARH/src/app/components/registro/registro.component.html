@@ -1,0 +1,64 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="card-title text-center mb-4 text-dark">Registro</h2>
+          <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                placeholder="seuemail@exemplo.com"
+                [class.is-invalid]="registroForm.get('email')?.invalid && registroForm.get('email')?.touched"
+              >
+              <div *ngIf="registroForm.get('email')?.invalid && registroForm.get('email')?.touched" class="invalid-feedback">
+                <div *ngIf="registroForm.get('email')?.errors?.['required']">Email é obrigatório.</div>
+                <div *ngIf="registroForm.get('email')?.errors?.['email']">Email inválido.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="senha" class="form-label">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="senha"
+                formControlName="senha"
+                placeholder="********"
+                [class.is-invalid]="registroForm.get('senha')?.invalid && registroForm.get('senha')?.touched"
+              >
+              <div *ngIf="registroForm.get('senha')?.invalid && registroForm.get('senha')?.touched" class="invalid-feedback">
+                <div *ngIf="registroForm.get('senha')?.errors?.['required']">Senha é obrigatória.</div>
+                <div *ngIf="registroForm.get('senha')?.errors?.['minlength']">Senha deve ter no mínimo 6 caracteres.</div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmarSenha"
+                formControlName="confirmarSenha"
+                placeholder="********"
+                [class.is-invalid]="registroForm.get('confirmarSenha')?.invalid && registroForm.get('confirmarSenha')?.touched || registroForm.errors?.['mismatch']"
+              >
+              <div *ngIf="registroForm.get('confirmarSenha')?.invalid && registroForm.get('confirmarSenha')?.touched" class="invalid-feedback">
+                <div *ngIf="registroForm.get('confirmarSenha')?.errors?.['required']">Confirmação de senha é obrigatória.</div>
+              </div>
+              <div *ngIf="registroForm.errors?.['mismatch'] && registroForm.get('confirmarSenha')?.touched" class="invalid-feedback d-block">
+                As senhas não coincidem.
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary" [disabled]="registroForm.invalid">Registrar</button>
+              <p class="text-center mt-3">Já tem uma conta? <a routerLink="/login">Faça login aqui</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<section class="listar-vagas container my-4">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 mb-4" *ngFor="let vaga of vagas">
+      <div class="card h-100 shadow-sm">
+        <img src="{{vaga.foto}}" class="card-img-top" alt="{{vaga.nome}}">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Código da Vaga: {{vaga.id}}</h5>
+          <h5 class="card-title">Vaga: {{vaga.nome}}</h5>
+          <p class="card-text text-muted">Descrição da Vaga: {{vaga.descricao}}</p>
+          <p class="card-text fw-bold">Salário: R$ {{vaga.salario}},00</p>
+          <div *ngIf="isLoggedIn() && isUserComum()" class="d-grid mt-3">
+            <button class="btn btn-primary" (click)="candidatarVaga(vaga.id)">Candidatar-se</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="rodape"></div>

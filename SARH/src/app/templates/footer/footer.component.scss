@@ -1,0 +1,13 @@
+$primaria: #000000; // Preto
+
+.footer{
+  background-color: $primaria !important; // Fundo preto para o footer
+  color: #fff;
+  padding: 15px 0; // Ajuste de padding
+  text-align: center;
+  position: relative; // Alterado de fixed para relative para não sobrepor conteúdo
+  bottom: 0;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: auto; // Empurra o footer para baixo se o conteúdo for pequeno
+}

@@ -1,0 +1,71 @@
+// Variáveis de cor
+$primaria: #007bff; // Azul padrão para botões e links
+$dark: #343a40;     // Cor para textos principais
+
+.container {
+  min-height: 100vh; // Garante que o container ocupe a altura total da viewport
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem; // Adiciona um padding para espaçamento
+}
+
+.row {
+  width: 100%; // Garante que a linha ocupe 100% da largura
+}
+
+.card {
+  border: 1px solid #dee2e6; // Borda sutil
+  border-radius: 0.25rem;    // Cantos levemente arredondados
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); // Sombra discreta
+  width: 100%; // Garante que o card ocupe 100% da largura disponível
+  max-width: 400px; // Largura máxima para o card
+  padding: 1.5rem; // Espaçamento interno
+
+  .card-title {
+    color: $dark; // Cor escura para o título
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+    color: $dark;
+    margin-bottom: 0.25rem;
+  }
+
+  .form-control {
+    border-radius: 0.2rem; // Cantos arredondados para inputs
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+    &:focus {
+      border-color: $primaria;
+      box-shadow: 0 0 0 0.2rem rgba($primaria, 0.25);
+    }
+  }
+
+  .invalid-feedback {
+    font-size: 0.8rem;
+  }
+
+  .btn-primary {
+    background-color: $primaria;
+    border-color: $primaria;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    &:hover {
+      background-color: darken($primaria, 10%);
+      border-color: darken($primaria, 10%);
+    }
+  }
+
+  a {
+    color: $primaria;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
