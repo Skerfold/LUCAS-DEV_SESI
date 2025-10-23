@@ -1,7 +1,7 @@
 // lib/screens/historico_screen.dart
 // CÓDIGO COMPLETO
 
-import 'package:flutter/material.dart'; // <--- VERIFIQUE ESTE IMPORT
+import 'package:flutter/material.dart'; // <-- Faltou este import
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart'; 
 

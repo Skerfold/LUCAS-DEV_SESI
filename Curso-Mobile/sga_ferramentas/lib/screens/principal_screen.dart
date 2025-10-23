@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:sga_ferramentas/screens/historico_screen.dart';
 
 class PrincipalScreen extends StatelessWidget {
   const PrincipalScreen({super.key});
@@ -77,8 +78,13 @@ class PrincipalScreen extends StatelessWidget {
             _MenuButton(
               icone: Icons.history_rounded,
               titulo: 'Histórico',
-              // ----> 3. VOCÊ ATUALIZOU O ONTAP AQUI?
-              onTap: () => _irPara(context, '/historico'), 
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const HistoricoScreen(),
+                  ),
+                );
+              },
             ),
           ],
         ),

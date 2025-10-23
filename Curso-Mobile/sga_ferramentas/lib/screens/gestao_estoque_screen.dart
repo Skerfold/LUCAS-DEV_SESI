@@ -230,7 +230,7 @@ class _GestaoEstoqueScreenState extends State<GestaoEstoqueScreen> {
                 children: [
                   // (7.1.2) Seleção do Produto
                   DropdownButtonFormField<Produto>(
-                    value: _produtoSelecionado,
+                    initialValue: _produtoSelecionado,
                     hint: const Text('Selecione um produto...'),
                     isExpanded: true,
                     // Constrói os itens do Dropdown
