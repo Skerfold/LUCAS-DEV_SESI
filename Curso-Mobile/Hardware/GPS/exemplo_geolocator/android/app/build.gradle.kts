@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.exemplo_geolocator"
-    compileSdk = 36
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {

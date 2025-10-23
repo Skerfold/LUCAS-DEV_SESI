@@ -1,5 +1,6 @@
-// Exemplo de uso do GPS
+// exemplo de uso do GPS
 
+import 'package:exemplo_geolocator/clima_service.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -15,44 +16,49 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  // Atributos
-  String mensagem = 'Aguardando Localização. . .';
+  //atributos
+  String mensagem = "";
+  final ClimaService climaService = ClimaService();
 
-  // Método para pegar a localização do dispositivo
-  // Verificar se a localização está ativada
-
-  Future<String> getLocation() async {
+  //método para pegar a localização dos dispositivo
+  // verificar se a localização esta liberada para uso no app
+  Future<Position?> getLocation() async {
     bool serviceEnabled;
     LocationPermission permission;
 
-    // Verifica se o serviço de localização está habilitado
+    //verificar se o serviço de localização esta liberado no dispositivo
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      return "Serviço de localização desabilitado.";
+      throw Exception("Serviço de Localização desabilitado");
     }
-    // Solicita a permissão da localização
+    //solictar a liberação do serviço
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        return "Permissão de localização negada.";
+        throw Exception("Permissão de Localização Negada");
       }
     }
     Position position = await Geolocator.getCurrentPosition();
-    return "Latitude: ${position.latitude}, Longitude: ${position.longitude}";
+    return position;
+  }
+
+  Future<String> getLocationWeather() async {
+    final position = await getLocation();
+    if (position == null) throw Exception("Posição nula");
+
+    final climaPosition = await climaService.getCityWeatherByPosition(position);
+    if (climaPosition == null) throw Exception("Clima nulo");
+
+    return "${climaPosition["name"]} -- ${climaPosition["main"]["temp"] - 273} -- Sensação de: ${climaPosition["main"]["temp"]}";
   }
 
   @override
   void initState() {
     super.initState();
-    // Chamar o método para pegar a localização
-    _getLocation();
-  }
-
-  Future<void> _getLocation() async {
-    String result = await getLocation();
+    //chamar o método ao iniciar a aplicação;
     setState(() {
-      mensagem = result;
+      mensagem = getLocation().toString();
     });
   }
 
@@ -67,7 +73,7 @@ class _LocationScreenState extends State<LocationScreen> {
             Text(mensagem),
             ElevatedButton(
               onPressed: () async {
-                String result = await getLocation();
+                String result = await getLocationWeather();
                 setState(() {
                   mensagem = result;
                 });

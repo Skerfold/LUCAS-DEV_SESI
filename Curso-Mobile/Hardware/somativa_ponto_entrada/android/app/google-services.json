@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "18005705993",
+    "project_id": "somativapontoentrada",
+    "storage_bucket": "somativapontoentrada.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18005705993:android:4ac2de88d7972cdef27fd8",
+        "android_client_info": {
+          "package_name": "com.example.somativa_ponto_entrada"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtZhPFFnTxEbZj2tJvvnSuZb7qkGQvuNc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

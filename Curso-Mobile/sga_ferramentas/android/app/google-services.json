@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "221293546767",
+    "project_id": "sga-ferramentas",
+    "storage_bucket": "sga-ferramentas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:221293546767:android:f6aad8b90d76e9f060027a",
+        "android_client_info": {
+          "package_name": "com.example.sga_ferramentas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4Y6WAtKN5CiNktUEgeoPCuE-dVwwhRwU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
